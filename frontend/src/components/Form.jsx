@@ -17,7 +17,10 @@ function Form({ route, method }) {
         setLoading(true);
         e.preventDefault();
 
+        console.log(route);
         try {
+
+            console.log(import.meta.env.VITE_API_URL);
             const res = await api.post(route, { username, password })
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
